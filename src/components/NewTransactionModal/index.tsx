@@ -4,6 +4,7 @@ import { Container, TransactioTypeContainer, RadioBox } from "./styles";
 import closeImg from "../../assets/close.svg";
 import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
+import { api } from "../../services/api";
 
 interface NewTransactionModalProps {
   isOpen: boolean;
@@ -27,7 +28,8 @@ export function NewTransactionModal({
       category,
       type,
     };
-    console.log("payload", payload);
+
+    api.post("/transactions", payload);
   }
 
   return (
